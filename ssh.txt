@@ -1,0 +1,45 @@
+default state ---> ssh root@123.14.05.78
+
+"create new user" =>
+  add user esrafil
+  password : -----------
+
+"add to sudo group" =>
+  add user esrafil sudo
+
+"edit ssh config file" =>
+  *vim /etc/ssh/sshd-config
+  *port 22 => port 4783 (could be everything)
+  *permitRootLogin => no
+
+"restart ssh service" =>
+  service sshd restart
+
+"use again" =>
+  ssh -p 4783 esrafil@123.14.05.78
+
+"we have use sudo for command lines because we are in sudo group" =>
+  like: sudo reboot
+
+"for limit entry/output and ports" =>
+  install ufw
+  sudo ufw enable
+  sudo ufw default deny incoming
+  sudo ufw status ---> all ports must be closed
+  sudo ufw allow 4783 ---> our port (4783) now is open
+  sudo ufw allow http
+  sudo ufw allow https
+
+"for handle brud force" =>
+  install sshguard
+
+"continue explaining"
+  sudo service mongodb start (or restart)
+  sudo service mongodb stop
+  sudo service mongodb status
+
+"first warning" =>
+  sudo ufw allow 27017 ---> doesn't allow this port of mongodb : the app is inside of server and mongodb too inside server --> connect eachOther
+
+"if was open close it" =>
+  sudo ufw deny 27017

@@ -1,0 +1,24 @@
+shell ---> run pwd, ls and ... scripts for connect to linux kernel (command line interpreter)
+shell : 1- command line shell 2- Gui shell(file explorer)
+
+terminal ---> the program connect with command line via shell
+
+*all the programm such as terminal, zsh, gnome, powershell ---> runs shell
+
+kernel ---> manage the files, I/O, process, memory, device, ...
+
+partition ---> partition on hard, driving on hard
+filesystem ---> partition template, partition structure
+
+windows partition structure ---> 
+*use NTFS filesystem
+*partitions: C, D, E, ... 
+*independent addressing, separate eachOther
+* drive C for "OS"
+
+
+gnu/linux partition structure --->
+*use EXT4 filesystem
+*partition root for "OS"
+*all other partitions branching from root
+*all partitions are relative
