@@ -12,3 +12,18 @@
 
 سنگینی فانکشن بر روی نمایش داده شدن همزمان ست استیت و آپدیت یو آی با استیت جدید هست
 نمیتونه هم سریع اون فانکشن سنگین ست استیت رو انجام بده هم یو آی رو با استیت جدید آپدیت کنه
+
+// code example
+import { useState, useDeferredValue } from 'react';
+import SlowList from './SlowList.js';
+
+export default function App() {
+  const [text, setText] = useState('');
+  const deferredText = useDeferredValue(text);
+  return (
+    <>
+      <input value={text} onChange={e => setText(e.target.value)} />
+      <SlowList text={deferredText} />
+    </>
+  );
+}
