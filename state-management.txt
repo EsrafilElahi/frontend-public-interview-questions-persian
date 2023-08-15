@@ -1,0 +1,8 @@
+global store:
+  uni-directional : redux, zustand (immutable model)
+
+magic store:
+  bi-directional : Mobx, valtio (mutable model)
+
+atomic model:
+  jotai, recoil
