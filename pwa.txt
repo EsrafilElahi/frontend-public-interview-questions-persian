@@ -1,0 +1,5 @@
+steps :
+  1- registeration manifest
+  2- installation
+  3- activation
+fetch --> fetch css, js, font and any fetch methods in that url ("/" or "/products")
