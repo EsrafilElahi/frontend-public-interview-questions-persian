@@ -1,5 +1,9 @@
+service worker -> one of browser worker that give use, offline-mode, push notification and ...
+
 steps :
   1- registeration manifest
   2- installation
   3- activation
 fetch --> fetch css, js, font and any fetch methods in that url ("/" or "/products")
+
+* skipWating --> when service-worker updated => browser waits until all tabs close to active update, by pushing the skipWaiting , this process is ignored
