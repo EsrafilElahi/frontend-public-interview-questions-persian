@@ -1,0 +1,55 @@
+attention web vitals
+// use Next Image
+use sharp package for NExt/Images
+// use zustand and implement "Hydration"
+// for slider and carousel use "Keen Slider"
+multi zone for separate several apps
+next.config.js {
+  config --> minimum CacheTTL on Images
+  security headers
+}
+
+use (useMemo, useCallback, memo) functions
+
+use pararell routing and pararell fetching
+
+Client-side Rendering (CSR): Client components
+generateStaticParams() in SSG
+
+server component default use static rendering(ssg)
+    fetch('https://...', { cache: 'force-cache' });  ==> SSG
+    
+for ssr in RSC ---> set no-store & set revalidate
+    fetch('https://...', { cache: 'no-store | no-cache' });  ==> SSR
+    fetch('https://...', { next: { revalidate: 10 } }); ==> or ISR
+
+use React.Suspense more
+use sentry for monitoring and error tracking
+// main page ---> ISR
+if you use SSR then use ssr-caching
+// first image loaded ---> must be "priority"
+// for Link default has prefetch=true ---> create custom linke component and make it prefetch=false
+use shallow routing for doesn't need make SSR or SSG
+for CSR use SWR
+use custom logger
+
+// in mobile use dvh, svh, lvh heigth
+
+dynamic import SVG icons
+keep small return() method in pages and components
+if section of page doesn't need to be SSR--> make it dynamic import and { ssr: false }
+handleError in SSR, SSG, ... like try/catch
+use Headers vs Cookie in SSR
+use font loader in nextjs
+static pages like about-us policy and ... must be SSG
+use several suspense in one page all components
+
+https://github.com/vercel/next.js/tree/canary/examples/with-sentry
+
+testing
+https://dev.to/peterlidee/lessons-i-learned-as-a-jest-and-react-testing-library-beginner-1ek7
+https://dev.to/peterlidee/setting-up-tests-with-mocks-and-more-mocking-examples-jest-mocking-react-part-4-337g
+https://dev.to/peterlidee/how-to-test-a-component-passed-as-prop-with-jest-4pgn
+https://dev.to/peterlidee/3-tips-for-setting-up-jest-and-rtl-for-nextjs-5dle
+
+https://codevoweb.com/setup-react-query-in-nextjs-13-app-directory/
