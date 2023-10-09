@@ -18,7 +18,7 @@ default state ---> ssh root@123.14.05.78
 "use again" =>
   ssh -p 4783 esrafil@123.14.05.78
 
-"we have use sudo for command lines because we are in sudo group" =>
+"we have to use sudo for command lines because we are in sudo group" =>
   like: sudo reboot
 
 "for limit entry/output and ports" =>

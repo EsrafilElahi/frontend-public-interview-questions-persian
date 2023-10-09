@@ -1,4 +1,4 @@
-components generated in virtual dom
+react components generated in virtual dom
 and post it into real dom
 
 when react components re-renders ---> doesn't mean dom updated
