@@ -1,0 +1,91 @@
+1.Rendering JSX (Initial Render):
+  When a component is first rendered, React processes the JSX and converts it to the virtual DOM. This happens before any hooks are called.
+
+2.DOM Creation:
+  React takes the JSX structure and creates the actual DOM elements. This is where the DOM is updated with any changes from the virtual DOM.
+
+3.useLayoutEffect:
+  useLayoutEffect runs synchronously after the DOM has been updated but before the browser paints (i.e., before the user sees the changes). It is prioritized because any DOM measurements or updates that need to be done before rendering to the screen should happen here.
+  This is usually used for DOM manipulations that need to happen before the UI is displayed to avoid flickering or visual inconsistencies.
+
+4.Browser Paint:
+  Once all the DOM updates (including those in useLayoutEffect) are done, the browser will paint the UI, allowing users to see the changes.
+
+5.useEffect:
+  useEffect runs after the browser has painted the UI. It is asynchronous and is intended for non-blocking operations like data fetching, subscriptions, or any other side effects that do not require synchronous interaction with the DOM.
+  By default, it runs after every render, but you can control when it runs by passing dependencies.
+
+Subsequent Rendering (Re-renders):
+  React re-renders a component whenever its state or props change.
+  On re-render, the same order is followed: JSX -> DOM updates -> useLayoutEffect -> browser paint -> useEffect.
+
+
+In summary, the priority is:
+  1-Rendering JSX
+  2-DOM Creation
+  3-useLayoutEffect (synchronous, after DOM creation but before painting)
+  4-Browser Paint (user-visible changes)
+  5-useEffect (asynchronous, after the browser paints)
+
+For managing side effects that affect the UI, useLayoutEffect should be used, while non-blocking tasks like API calls should be handled in useEffect.
+
+in code :
+
+```
+  import React, { useState, useEffect, useLayoutEffect } from 'react';
+  
+  const ExecutionOrderExample = () => {
+    const [count, setCount] = useState(0);
+  
+    console.log('1. Rendering JSX'); // This will log every time the component renders
+  
+    // This runs synchronously after DOM updates but before the browser paints
+    useLayoutEffect(() => {
+      console.log('2. useLayoutEffect - Before browser paint');
+    });
+  
+    // This runs asynchronously after the browser has painted the changes
+    useEffect(() => {
+      console.log('3. useEffect - After browser paint');
+    }, [count]); // Runs after every `count` update
+  
+    return (
+      <div>
+        <h1>{`Count: ${count}`}</h1>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+      </div>
+    );
+  };
+  
+  export default ExecutionOrderExample;
+```
+
+IN CODE WITH SETSTATE, ASYNC, SYNC
+```
+  const [count, setCount] = useState(0);
+
+  console.log('1. Render - count:', count);
+
+  // This is asynchronous: React doesn't immediately apply state changes here.
+  useEffect(() => {
+    console.log('3. useEffect - Before setState');
+    setCount(count + 1); // State update is batched and will happen after the effect
+    console.log('4. useEffect - After setState');
+  }, []);
+
+  // This is synchronous: React updates the state immediately and the DOM reflects changes.
+  useLayoutEffect(() => {
+    console.log('2. useLayoutEffect - Before setState');
+    setCount(count + 1); // State update happens immediately, synchronously
+    console.log('5. useLayoutEffect - After setState');
+  }, []);
+
+```
+answer :
+1. Render - count: 0
+2. useLayoutEffect - Before setState
+1. Render - count: 1
+5. useLayoutEffect - After setState
+3. useEffect - Before setState
+4. useEffect - After setState
+1. Render - count: 2
