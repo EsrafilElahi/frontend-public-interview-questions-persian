@@ -48,7 +48,8 @@ in code :
     useEffect(() => {
       console.log('3. useEffect - After browser paint');
     }, [count]); // Runs after every `count` update
-  
+
+    // first of all convert jsx to virtual-dom
     return (
       <div>
         <h1>{`Count: ${count}`}</h1>
@@ -60,32 +61,3 @@ in code :
   export default ExecutionOrderExample;
 ```
 
-IN CODE WITH SETSTATE, ASYNC, SYNC
-```
-  const [count, setCount] = useState(0);
-
-  console.log('1. Render - count:', count);
-
-  // This is asynchronous: React doesn't immediately apply state changes here.
-  useEffect(() => {
-    console.log('3. useEffect - Before setState');
-    setCount(count + 1); // State update is batched and will happen after the effect
-    console.log('4. useEffect - After setState');
-  }, []);
-
-  // This is synchronous: React updates the state immediately and the DOM reflects changes.
-  useLayoutEffect(() => {
-    console.log('2. useLayoutEffect - Before setState');
-    setCount(count + 1); // State update happens immediately, synchronously
-    console.log('5. useLayoutEffect - After setState');
-  }, []);
-
-```
-answer :
-1. Render - count: 0
-2. useLayoutEffect - Before setState
-1. Render - count: 1
-5. useLayoutEffect - After setState
-3. useEffect - Before setState
-4. useEffect - After setState
-1. Render - count: 2
