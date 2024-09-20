@@ -21,7 +21,7 @@ Subsequent Rendering (Re-renders):
 
 
 In summary, the priority is:
-  1-Rendering JSX
+  1-Rendering JSX (virtual dom) => compare updated virtual-dom with prev virtual-dom and give the differences to actual-dom
   2-DOM Creation
   3-useLayoutEffect (synchronous, after DOM creation but before painting)
   4-Browser Paint (user-visible changes)
