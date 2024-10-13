@@ -1,0 +1,16 @@
+https://peeyushjss.medium.com/understanding-the-diffing-algorithm-in-react-js-9e9b71940341
+
+How does the Diffing Algorithm works?
+The diffing algorithm in React follows a set of steps to efficiently update the DOM:
+
+1- Virtual DOM Representation: React maintains a virtual representation of the DOM, known as the Virtual DOM. When data changes, React creates a new Virtual DOM tree.
+2- Element Diffing: React performs a diffing process by comparing the previous Virtual DOM tree with the new one. It identifies the differences between the two trees.
+3- Minimal Updates: Instead of updating the entire DOM, React generates a minimal set of updates needed to transform the current DOM to match the new Virtual DOM.
+4- Batching Updates: To avoid excessive DOM manipulations, React batched updates and applies them in a single batch. This reduces browser reflows and improves performance.
+5- Keyed Elements: The use of keys in React components helps the algorithm to accurately identify and track changes in lists, improving efficiency.
+
+Benefits of the Diffing Algorithm:
+
+1- Performance Optimization: By updating only the necessary parts of the DOM, React minimizes the impact of rendering updates on performance, resulting in smoother user experiences.
+2- Reduced Browser Reflows: The algorithm’s ability to batch updates reduces browser reflows, which can be resource-intensive and lead to flickering.
+3- Responsive Applications: Diffing enables React applications to respond quickly to user interactions and data changes, enhancing overall interactivity.
