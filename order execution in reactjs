@@ -12,7 +12,7 @@
   Once all the DOM updates (including those in useLayoutEffect) are done, the browser will paint the UI, allowing users to see the changes.
 
 5.useEffect:
-  useEffect runs after the browser has painted the UI. It is asynchronous and is intended for non-blocking operations like data fetching, subscriptions, or any other side effects that do not require synchronous interaction with the DOM.
+  useEffect runs after the browser has painted the UI. It is asynchronous and is considered for non-blocking operations like data fetching, subscriptions, or any other side effects that do not require synchronous interaction with the DOM.
   By default, it runs after every render, but you can control when it runs by passing dependencies.
 
 Subsequent Rendering (Re-renders):
