@@ -1,3 +1,5 @@
+// =========================== Function Base ===========================
+
 const nameFunc = (initName) => {
   let name = initName || 'defaultName';
   
@@ -25,7 +27,45 @@ const nameFunc = (initName) => {
   }
 };
 
-const nameInstance = nameFunc('esrafil');
+const nameInstance1 = nameFunc('esrafil');
+
+console.log(nameInstance1.getName());
+nameInstance1.setNewName('elahi');
+console.log(nameInstance1.getName());
+nameInstance1.setNewName('test');
+console.log(nameInstance1.getName());
+nameInstance1.resetName();
+console.log(nameInstance1.getName());
+
+
+// =========================== Class Base ===========================
+
+class NameClass {
+  constructor(initName) {
+    this.defaultName = 'defaultName';
+    this.initName = initName;
+    this.name = initName || defaultName;
+  }
+  
+  getName(){
+    return this.name
+  }
+  
+  setNewName(newName) {
+    if(newName) {
+      return this.name = newName;
+    } else {
+      throw new Error('the new name is required!')
+    }
+  }
+  
+  resetName() {
+      return this.name = this.initName || this.defaultName
+    }
+}
+
+
+const nameInstance = new NameClass('esrafil');
 
 console.log(nameInstance.getName());
 nameInstance.setNewName('elahi');
