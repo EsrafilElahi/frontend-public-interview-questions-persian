@@ -1,1 +1,6 @@
-مقدار this در arrow function
+مقدار this در arrow function همیشه undefined نیست بلکه از lexical scope خود به ارث میبره یعنی مقدار this در arrow function وابسته به this در محیط بالا دستی خودش هست
+
+اگر arrow function داخل یک تابع عادی باشد مقدار this همان مقدار this تابع بالاتر خواهد بود
+اگر تابع بالا دستی وجود نداشته باشد
+در strict mode باشد مقدار this برابر با undefined خواهد بود
+در non-strict mode مقدار this به window یا global اشاره میکند
