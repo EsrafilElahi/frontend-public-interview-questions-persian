@@ -1,0 +1,22 @@
+تفاوت .js با .mjs و .cjs:
+
+پسوند فایل	نوع ماژول	نحوهی تشخیص	سینتکس مجاز
+.js  => CommonJS یا ES Module	وابسته به package.json	require() یا import/export
+.mjs =>	همیشه ES Module	بدون نیاز به تنظیمات	فقط import/export
+.cjs =>	همیشه CommonJS	بدون نیاز به تنظیمات	فقط require()
+
+
+جمعبندی تفاوتها:
+
+.js:
+انعطافپذیر، اما رفتارش وابسته به تنظیمات پروژه است.
+اگر "type": "module" باشد → ES Module.
+اگر نباشد → CommonJS.
+
+.mjs:
+همیشه ES Module، حتی بدون تنظیمات.
+مناسب برای پروژههای مدرن با import/export.
+
+.cjs:
+همیشه CommonJS، حتی با وجود "type": "module".
+مناسب برای اسکریپتهای قدیمی با require().
