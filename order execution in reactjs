@@ -5,7 +5,7 @@
   React takes the JSX structure and creates the actual DOM elements. This is where the DOM is updated with any changes from the virtual DOM.
 
 3.useLayoutEffect:
-  useLayoutEffect runs synchronously after the DOM has been updated but before the browser paints (i.e., before the user sees the changes). It is prioritized because any DOM measurements or updates that need to be done before rendering to the screen should happen here.
+  useLayoutEffect runs synchronously after the DOM has been created or updated but before the browser paints (i.e., before the user sees the changes). It is prioritized because any DOM measurements or updates that need to be done before rendering to the screen should happen here.
   This is usually used for DOM manipulations that need to happen before the UI is displayed to avoid flickering or visual inconsistencies.
 
 4.Browser Paint:
