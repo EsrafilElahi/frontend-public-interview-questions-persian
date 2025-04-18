@@ -124,6 +124,3 @@ export default defineConfig({
 ✔ **Obfuscation makes code harder to reverse-engineer.**  
 ✔ **Source maps link minified JavaScript back to original code for debugging.**  
 ✔ **Source maps are enabled by default in development but need to be manually enabled in production.**  
-
-Would you like a sample **Babel + Webpack project setup**? 😊
-
