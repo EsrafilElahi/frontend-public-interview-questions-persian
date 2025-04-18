@@ -2,7 +2,7 @@
 
 ## **1️⃣ What Happens to JavaScript When Compiled?**  
 When JavaScript (including React/JSX) is compiled:
-- JSX and ES6+ features are **transpiled** into plain JavaScript using **Babel**.
+- JSX and ES6+ features are **transpiled** into plain JavaScript using **Babel**. or **Swc**
 - The code is **bundled** using **Webpack, Vite, or Parcel**.
 - The final output is **minified** and sometimes **obfuscated** for production.
 - **Source maps** help link the compiled JavaScript to the original source.
