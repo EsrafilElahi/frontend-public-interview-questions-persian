@@ -37,3 +37,10 @@
 ### مثال خطای Compile Time:
 ```ts
 let user: string = 123; // ❌ Type 'number' is not assignable to type 'string'
+
+
+
+مرحله | چه کاری انجام می‌دهد؟ | ابزارها / محیط‌ها | نوع خطاهای رایج
+Build Time | ترکیب و آماده‌سازی کد برای اجرا | Webpack, Vite, Next.js | Missing file, unresolved imports
+Compile Time | بررسی نحوی و تایپی قبل از اجرا | TypeScript, Babel | Type errors, syntax errors
+Runtime | اجرای واقعی برنامه (وقتی کاربر در حال استفاده از آن است) | مرورگر، Node.js | undefined, خطاهای منطقی در زمان اجرا
