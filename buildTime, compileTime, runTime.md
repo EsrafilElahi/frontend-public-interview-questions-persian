@@ -37,6 +37,7 @@
 ### مثال خطای Compile Time:
 ```ts
 let user: string = 123; // ❌ Type 'number' is not assignable to type 'string'
+```
 
 
 ## ⚙️ Runtime (زمان اجرا)
