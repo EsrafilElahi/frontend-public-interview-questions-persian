@@ -5,7 +5,7 @@ arr[1] = "iran"; // yes changes ---> mutable
 str[1] = "p"; // no changes ---> immutable
 console.log(arr);
 console.log(str);
-
+ 
 // question 2
 new Promise((resolve) => {
   console.log("1");
