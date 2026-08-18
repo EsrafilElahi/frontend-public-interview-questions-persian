@@ -39,3 +39,28 @@ const fibo_recursive = n => {
 
 // T: o(2n)
 // S: o(n)
+
+
+
+==============================
+
+const fibo_recursive = (n) => {
+  // base case 0,1
+  if (n < 2) {
+    return n;
+  }
+
+  return fibo(n - 2) + fibo(n - 1);
+};
+// T: o(2n)
+// S: o(n)
+
+const cache = { 0: 0, 1: 1 };
+const fibo_cached = (n) => {
+  if (n in cache) return cache[n];
+
+  cache[n] = fibo_cached(n - 2) + fibo_cached(n - 1);
+  return cache[n];
+};
+// T: o(n)
+// S: o(n)
