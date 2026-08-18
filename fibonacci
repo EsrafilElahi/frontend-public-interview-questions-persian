@@ -9,7 +9,7 @@ const fibonacci_arr = n => {
   return fibo;
 };
 // T: o(n)
-// S: o(1)
+// S: o(n)
 
 const fibo_a_b = n => {
   let a = 0;
@@ -64,3 +64,46 @@ const fibo_cached = (n) => {
 };
 // T: o(n)
 // S: o(n)
+
+
+// =================================
+const fibo_ab = (n) => {
+  if (n < 2) return n;
+
+  // a,b
+  let a = 0;
+  let b = 1;
+
+  // 0,1,1
+
+  for (let i = 2; i <= n; i++) {
+    let c = a + b;
+    a = b;
+    b = c;
+    console.log(a, b);
+  }
+
+  return b;
+};
+
+// T: o(n)
+// S: o(1)
+
+// =================================
+
+// [0,1]
+// index 2 => [1]
+// index 3 => [2]
+const fibo_for_index = (n) => {
+  const fibo = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+    fibo[i] = fibo[i - 1] + fibo[i - 2];
+  }
+
+  return fibo;
+};
+
+// T: o(n)
+// S: o(n)
+
